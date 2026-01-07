@@ -12,4 +12,8 @@
 ![](https://nirzak-streak-stats.vercel.app/?user=DevKingofEarth&theme=catppuccin_mocha&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=DevKingofEarth&theme=catppuccin_mocha&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
+# 🪪 More info
+- My Resume: https://rxresu.me/devkingofearth/dharrun-singh-resume
+- My CV: https://rxresu.me/devkingofearth/dharrun-singh-cv
+
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
