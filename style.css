@@ -252,6 +252,7 @@ body {
     background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
     color: var(--bg-dark);
     box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    border-radius: 8px;
 }
 
 .btn-primary:hover {
@@ -264,11 +265,13 @@ body {
     color: var(--neon-cyan);
     border: 2px solid var(--neon-cyan);
     box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+    border-radius: 8px;
 }
 
 .btn-secondary:hover {
     background: rgba(0, 243, 255, 0.1);
     box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    border-radius: 8px;
 }
 
 .btn-outline {
@@ -277,12 +280,14 @@ body {
     border: 2px solid var(--neon-cyan);
     padding: 15px 40px;
     font-size: 1.1rem;
+    border-radius: 8px;
 }
 
 .btn-outline:hover {
     background: var(--neon-cyan);
     color: var(--bg-dark);
     box-shadow: 0 0 15px var(--neon-cyan);
+    border-radius: 8px;
 }
 
 /* CV Buttons - Radium Green Style */
