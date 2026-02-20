@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharrun Singh - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">DS</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="neon-text">Dharrun Singh</h1>
+            <h2 class="subtitle">EEE Graduate | ML Researcher | Embedded Systems</h2>
+            <p class="hero-description">Building innovative solutions in Network-on-Chip, Machine Learning, and IoT</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title neon-text-pink">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Recent EEE graduate (2024) from Anna University with a robust academic foundation and practical research experience at C-DAC CINE Silchar. Co-authored an IEEE publication on ML-based Network-on-Chip optimization.</p>
+                    <p>Experienced in embedded systems with a strong interest in renewable energy, efficient mobility, secure advanced systems, space technologies, and strategic defence applications.</p>
+                    <p>I seek to innovate through novel solutions to drive research outcomes that deliver sustainable value to industry and society.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number neon-text">2024</span>
+                        <span class="stat-label">Graduation Year</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number neon-text">7.84</span>
+                        <span class="stat-label">CGPA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number neon-text">IEEE</span>
+                        <span class="stat-label">Published</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title neon-text-cyan">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Machine Learning & AI</h3>
+                    <ul>
+                        <li>Deep Learning</li>
+                        <li>Reinforcement Learning</li>
+                        <li>Graph Neural Networks (GNN)</li>
+                        <li>PyTorch & torch-geometric</li>
+                        <li>Q-Learning</li>
+                        <li>GANs</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Embedded Systems & IoT</h3>
+                    <ul>
+                        <li>ESP32 & ESP8266</li>
+                        <li>Arduino IDE</li>
+                        <li>Raspberry Pi</li>
+                        <li>Microcontrollers</li>
+                        <li>Hardware-Software Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>C / Embedded C/C++</li>
+                        <li>Java (Spring Boot)</li>
+                        <li>Kotlin</li>
+                        <li>NumPy</li>
+                        <li>Verilog</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Domain Knowledge</h3>
+                    <ul>
+                        <li>Network-on-Chip (NoC)</li>
+                        <li>Power System Modeling</li>
+                        <li>Renewable Energy</li>
+                        <li>Electric Vehicles (EVs)</li>
+                        <li>Battery Management Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Simulation</h3>
+                    <ul>
+                        <li>Gem5</li>
+                        <li>MATLAB</li>
+                        <li>SciLab</li>
+                        <li>Google Colab</li>
+                        <li>KiCAD (PCB)</li>
+                        <li>FreeCAD</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Development Tools</h3>
+                    <ul>
+                        <li>Git/Version Control</li>
+                        <li>Android Studio</li>
+                        <li>JetBrains IDEs</li>
+                        <li>Bash Scripting</li>
+                        <li>NixOS, Arch Linux, Fedora</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title neon-text-purple">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Repo Crafter</h3>
+                        <span class="project-tag">Automation | Shell</span>
+                    </div>
+                    <p class="project-description">Interactive shell for your git and project needs in multiple platforms. Automates repository setup and configuration.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/DevKingofEarth/Repo-Crafter" target="_blank" class="btn btn-small">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AIEcoinNix</h3>
+                        <span class="project-tag">NixOS | LLM Infrastructure</span>
+                    </div>
+                    <p class="project-description">A setup for your local or cloud LLM needs, specially for Perplexica and OpenCode in NixOS. Privacy-first AI infrastructure.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/DevKingofEarth/AIEcoinNix" target="_blank" class="btn btn-small">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>pBMSLSuite-O</h3>
+                        <span class="project-tag">ESP32 | BMS | IoT</span>
+                    </div>
+                    <p class="project-description">Educational ESP32 based BMS simulator. Battery Management System learning platform with real-time monitoring.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/DevKingofEarth/pBMSLSuite-O" target="_blank" class="btn btn-small">View Project</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="github-link">
+                <a href="https://github.com/DevKingofEarth" target="_blank" class="btn btn-outline">
+                    <span>View All Projects on GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications">
+        <div class="container">
+            <h2 class="section-title neon-text-lime">Publications</h2>
+            <div class="publication-card">
+                <h3>FRoZN: Fault-Tolerant Routing Technique Using Reinforcement Learning for ZMesh NoC</h3>
+                <p class="publication-publisher">IEEE VLSID 2025</p>
+                <p class="publication-description">Co-authored research on ML-based Network-on-Chip optimization achieving 10% performance improvement. Worked on algorithm optimization and rebuttal process.</p>
+                <a href="https://ieeexplore.ieee.org/document/10900681" target="_blank" class="btn btn-small">View Publication</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title neon-text-pink">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:dharrunsingh@gmail.com" class="contact-value">dharrunsingh@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+918637664377" class="contact-value">+91 8637664377</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Location</span>
+                        <span class="contact-value">Chennai, Tamil Nadu</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/DevKingofEarth" target="_blank" class="social-link github">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/dharrun-singh" target="_blank" class="social-link linkedin">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dharrun Singh. All rights reserved.</p>
+            <p class="footer-tagline">Built with <span class="neon-heart">♥</span> and Neon Lights</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <!-- Scroll Animations -->
+    <script src="animations.js"></script>
+</body>
+</html>

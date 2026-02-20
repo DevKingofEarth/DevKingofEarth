@@ -13,7 +13,8 @@
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=DevKingofEarth&theme=catppuccin_mocha&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
 # 🪪 More info
-- My Resume: https://rxresu.me/devkingofearth/dharrun-singh-resume
-- My CV: https://rxresu.me/devkingofearth/dharrun-singh-cv
+- 📄 **My Resume:** [![Resume](https://img.shields.io/badge/Resume-View%20PDF-red)](https://rxresu.me/devkingofearth/dharrun-singh-resume)
+- 📄 **My CV:** [![CV](https://img.shields.io/badge/CV-View%20PDF-green)](https://rxresu.me/devkingofearth/dharrun-singh-cv)
+- 🌐 **My Portfolio:** [![Portfolio](https://img.shields.io/badge/Portfolio-View%20Site-blue)](https://devkingofearth.github.io)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
