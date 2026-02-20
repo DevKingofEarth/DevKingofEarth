@@ -17,4 +17,4 @@
 - 📄 **My CV:** [![CV](https://img.shields.io/badge/CV-View%20PDF-green)](https://rxresu.me/devkingofearth/dharrun-singh-cv)
 - 🌐 **My Portfolio:** [![Portfolio](https://img.shields.io/badge/Portfolio-View%20Site-blue)](https://devkingofearth.github.io)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) | Website built with opencode ( https://opencode.ai ) -->
