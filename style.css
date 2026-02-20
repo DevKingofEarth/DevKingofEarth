@@ -592,13 +592,13 @@ body {
 .social-link.github {
     background: var(--bg-card);
     color: var(--text-primary);
-    border: 2px solid #6e5494;
-    box-shadow: 0 0 10px rgba(110, 84, 148, 0.2);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 .social-link.github:hover {
-    background: #6e5494;
-    box-shadow: 0 0 15px rgba(110, 84, 148, 0.3);
+    background: transparent;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .social-link.linkedin {
@@ -611,6 +611,26 @@ body {
 .social-link.linkedin:hover {
     background: #0077b5;
     box-shadow: 0 0 15px rgba(0, 119, 181, 0.3);
+}
+
+/* Social Link Icons */
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.social-link.github,
+.social-link.linkedin {
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
+.social-link span {
+    font-size: 0.95rem;
 }
 
 /* ===== CV Download Section ===== */
@@ -719,9 +739,19 @@ body {
         flex-direction: row;
         justify-content: center;
     }
+
+    /* Hide username when squeezed */
+    .social-link span {
+        display: none;
+    }
+
+    .social-link.github,
+    .social-link.linkedin {
+        padding: 10px 12px;
+    }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -744,6 +774,16 @@ body {
 
     .about-stats {
         grid-template-columns: 1fr;
+    }
+
+    /* Social icons - hide username when squeezed (tablet/mobile), square-ish */
+    .social-link span {
+        display: none;
+    }
+
+    .social-link.github,
+    .social-link.linkedin {
+        padding: 10px 12px;
     }
 
     .social-links {
@@ -800,6 +840,11 @@ body {
 .skill-85 { width: 85%; }
 .skill-80 { width: 80%; }
 .skill-75 { width: 75%; }
+
+/* ===== Section Base Styles for Animations ===== */
+section {
+    will-change: opacity, transform;
+}
 
 /* ===== Scroll Animations ===== */
 .animate-on-scroll {
