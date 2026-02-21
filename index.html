@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://devkingofearth.github.io/Meweb.png">
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rajdhani:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -56,6 +56,7 @@
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
+            <p class="opportunity-note">Open to opportunities</p>
         </div>
         <div class="hero-glow"></div>
     </section>
@@ -295,6 +296,24 @@
                 });
             });
         });
+
+        // Opportunity note smoke fade on scroll
+        const opportunityNote = document.querySelector('.opportunity-note');
+        const aboutSection = document.querySelector('#about');
+        
+        if (opportunityNote && aboutSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        opportunityNote.classList.add('smoke-fade');
+                    } else {
+                        opportunityNote.classList.remove('smoke-fade');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(aboutSection);
+        }
     </script>
     
     <!-- Scroll Animations -->

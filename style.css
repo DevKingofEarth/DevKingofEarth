@@ -225,6 +225,26 @@ body {
     flex-wrap: wrap;
 }
 
+/* Opportunity Note - Subtle, elegant, smoke fade */
+.opportunity-note {
+    font-family: 'Rajdhani', sans-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 20px;
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+}
+
+.opportunity-note.smoke-fade {
+    opacity: 0;
+    transform: translateY(-15px);
+    filter: blur(3px);
+}
+
 .hero-glow {
     position: absolute;
     width: 500px;
