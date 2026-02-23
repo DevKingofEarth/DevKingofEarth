@@ -703,11 +703,41 @@ body {
     color: var(--text-primary);
     border: 2px solid #fd0;
     box-shadow: 0 0 8px rgba(255, 221, 0, 0.15);
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    overflow: hidden;
 }
 
 .social-link.arratai:hover {
     background: #fd0;
     box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
+    color: #000;
+}
+
+/* Arratai icon - left side filled portion (shields.io style) */
+.social-link.arratai .arratai-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fd0;
+    border-radius: 4px;
+    margin-right: 6px;
+}
+
+.social-link.arratai .arratai-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+/* Arratai text on right */
+.social-link.arratai span {
+    white-space: nowrap;
 }
 
 /* Social Link Icons */
@@ -851,6 +881,28 @@ body {
     .social-link.orcid,
     .social-link.arratai {
         padding: 8px 10px;
+    }
+
+    /* Mobile: Arratai - same as other buttons */
+    .social-link.arratai span {
+        display: none;
+    }
+
+    .social-link.arratai .arratai-icon {
+        width: 20px;
+        height: 20px;
+        min-width: unset;
+        min-height: unset;
+        margin-right: 0;
+    }
+
+    .social-link.arratai .arratai-icon img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .social-link.arratai:hover .arratai-icon {
+        box-shadow: 0 0 12px rgba(255, 221, 0, 0.6);
     }
 }
 
