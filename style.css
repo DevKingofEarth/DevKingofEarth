@@ -701,13 +701,13 @@ body {
 .social-link.arratai {
     background: var(--bg-card);
     color: var(--text-primary);
-    border: 2px solid var(--neon-orange);
-    box-shadow: 0 0 8px rgba(255, 136, 0, 0.15);
+    border: 2px solid #fd0;
+    box-shadow: 0 0 8px rgba(255, 221, 0, 0.15);
 }
 
 .social-link.arratai:hover {
-    background: var(--neon-orange);
-    box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
+    background: #fd0;
+    box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
 }
 
 /* Social Link Icons */
@@ -719,7 +719,8 @@ body {
 
 .social-link.github,
 .social-link.linkedin,
-.social-link.orcid {
+.social-link.orcid,
+.social-link.arratai {
     padding: 5px 10px;
     display: inline-flex;
     align-items: center;
@@ -849,7 +850,7 @@ body {
     .social-link.linkedin,
     .social-link.orcid,
     .social-link.arratai {
-        padding: 10px 12px;
+        padding: 8px 10px;
     }
 }
 
@@ -895,7 +896,9 @@ body {
 }
 
     .social-link.github,
-    .social-link.linkedin {
+    .social-link.linkedin,
+    .social-link.orcid,
+    .social-link.arratai {
         padding: 8px 10px;
     }
 
