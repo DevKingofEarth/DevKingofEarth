@@ -698,46 +698,88 @@ body {
     box-shadow: 0 0 15px rgba(166, 206, 57, 0.4);
 }
 
-.social-link.arratai {
-    background: var(--bg-card);
-    color: var(--text-primary);
-    border: 2px solid #fd0;
-    box-shadow: 0 0 8px rgba(255, 221, 0, 0.15);
-    display: flex;
-    align-items: center;
-    padding: 4px 10px;
-    overflow: hidden;
+/* ===== Arratai Split Button ===== */
+.arratai-split-btn {
+    display: inline-flex;
+    align-items: stretch;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    height: fit-content;
+    border-radius: 6px;
+    overflow: visible;
 }
 
-.social-link.arratai:hover {
-    background: #fd0;
-    box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
-    color: #000;
-}
-
-/* Arratai icon - left side filled portion (shields.io style) */
-.social-link.arratai .arratai-icon {
-    width: 20px;
-    height: 20px;
+/* Left Segment: Icon */
+.arratai-icon-segment {
+    background: #EDC934;
+    border: 2px solid #EDC934;
+    border-radius: 6px 0 0 6px;
+    width: 34px;
+    height: 34px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fd0;
-    border-radius: 4px;
-    margin-right: 6px;
+    box-shadow: 0 0 10px rgba(237, 201, 52, 0.2);
+    transition: all 0.3s ease;
 }
 
-.social-link.arratai .arratai-icon img {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
-    border-radius: 2px;
+.arratai-icon-segment img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Arratai text on right */
-.social-link.arratai span {
-    white-space: nowrap;
+/* Right Segment: Text */
+.arratai-split-btn span {
+    background: var(--bg-card);
+    border: 2px solid #EDC934;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    height: 34px;
+    box-shadow: 0 0 10px rgba(237, 201, 52, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.arratai-split-btn:hover {
+    transform: translateY(-3px);
+}
+
+.arratai-split-btn:hover .arratai-icon-segment {
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 20px #EDC934;
+}
+
+.arratai-split-btn:hover span {
+    background: #EDC934;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 20px #EDC934;
+    color: #000;
+}
+
+/* Mobile Mode */
+@media (max-width: 768px) {
+    .arratai-split-btn span {
+        display: none;
+    }
+    
+    .arratai-icon-segment {
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* On hover, ensure all corners are rounded */
+    .arratai-split-btn:hover .arratai-icon-segment {
+        border-radius: 6px;
+    }
 }
 
 /* Social Link Icons */
@@ -749,8 +791,7 @@ body {
 
 .social-link.github,
 .social-link.linkedin,
-.social-link.orcid,
-.social-link.arratai {
+.social-link.orcid {
     padding: 5px 10px;
     display: inline-flex;
     align-items: center;
@@ -878,35 +919,11 @@ body {
 
     .social-link.github,
     .social-link.linkedin,
-    .social-link.orcid,
-    .social-link.arratai {
+    .social-link.orcid {
         padding: 8px 10px;
     }
 
-    /* Mobile: Arratai - same as other buttons */
-    .social-link.arratai span {
-        display: none;
-    }
-
-    .social-link.arratai .arratai-icon {
-        width: 20px;
-        height: 20px;
-        min-width: unset;
-        min-height: unset;
-        margin-right: 0;
-    }
-
-    .social-link.arratai .arratai-icon img {
-        width: 16px;
-        height: 16px;
-    }
-
-    .social-link.arratai:hover .arratai-icon {
-        box-shadow: 0 0 12px rgba(255, 221, 0, 0.6);
-    }
-}
-
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -949,8 +966,7 @@ body {
 
     .social-link.github,
     .social-link.linkedin,
-    .social-link.orcid,
-    .social-link.arratai {
+    .social-link.orcid {
         padding: 8px 10px;
     }
 
