@@ -1,0 +1,11 @@
+# Implementation Plan (Planner's working file)
+IMPLEMENTATION_PLAN.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
