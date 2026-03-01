@@ -682,7 +682,7 @@ body {
     color: var(--text-primary);
     border: 2px solid #EA4335;
     box-shadow: 0 0 8px rgba(234, 67, 53, 0.15);
-    padding: 4px 10px;
+    padding: 6px 10px;
     gap: 6px;
 }
 
@@ -732,58 +732,60 @@ body {
     position: relative;
 }
 
-/* Left Segment: Icon */
-.arratai-icon-segment {
-    background: #EDC934;
+/* Arratai Button - PC Mode (Combined to match other social links) */
+.arratai-split-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    background: var(--bg-card);
     border: 2px solid #EDC934;
-    border-radius: 6px 0 0 6px;
-    width: 34px;
-    height: 34px;
-    flex-shrink: 0;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    width: fit-content;
+    height: auto;
+    line-height: 1;
+}
+
+.arratai-icon-segment {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 8px rgba(237, 201, 52, 0.15);
-    transition: all 0.3s ease-in-out;
 }
 
-.arratai-icon-segment img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.arratai-icon-inner img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    /* PC Mode: Grayscale + brightness to make it white-ish */
+    filter: grayscale(100%) brightness(150%);
+    transition: none;
 }
 
-/* Right Segment: Text */
 .arratai-split-btn span {
-    background: var(--bg-card);
-    border: 2px solid #EDC934;
-    border-left: none;
-    border-radius: 0 6px 6px 0;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    color: var(--text-primary);
-    font-weight: 500;
     font-size: 0.85rem;
-    height: 34px;
-    box-shadow: 0 0 8px rgba(237, 201, 52, 0.15);
-    transition: all 0.3s ease-in-out;
+    line-height: 1;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
-/* Hover Effects - Professional (no jump, soft glow) */
-.arratai-split-btn:hover .arratai-icon-segment {
-    border-radius: 6px 0 0 6px;
+/* PC Hover */
+.arratai-split-btn:hover {
+    background: #EDC934;
     box-shadow: 0 0 15px rgba(237, 201, 52, 0.3);
 }
 
 .arratai-split-btn:hover span {
-    background: #EDC934;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(237, 201, 52, 0.3);
     color: #000;
 }
 
-/* Arratai hover text show/hide - simple */
+/* PNG becomes normal on hover in PC mode */
+.arratai-split-btn:hover .arratai-icon-inner img {
+    filter: none;
+}
+
+/* Arratai hover text show/hide */
 .arratai-split-btn .arratai-hover {
     display: none;
 }
@@ -796,32 +798,44 @@ body {
     display: inline;
 }
 
-/* Mobile Mode */
+/* Mobile Mode - Restored to original split look without inversion hacks */
 @media (max-width: 768px) {
-    .arratai-split-btn .arratai-default,
-    .arratai-split-btn .arratai-hover {
-        display: none;
+    .arratai-split-btn {
+        border: none;
+        background: transparent;
+        padding: 0;
+        gap: 0;
     }
-    
+
     .arratai-icon-segment {
+        background: transparent;
+        border: 2px solid #EDC934;
         border-radius: 6px;
         width: 40px;
         height: 40px;
+        transition: background 0.3s ease;
     }
     
-    /* Hide hover text on mobile */
-    .social-link .hover-text {
-        display: none;
+    .arratai-icon-inner {
+        background: transparent;
     }
     
-    /* Hide Arratai hover text on mobile */
-    .arratai-split-btn .arratai-hover {
-        display: none !important;
+    .arratai-icon-inner img {
+        width: 28px;
+        height: 28px;
+        background: transparent;
+        filter: none !important;
+        mix-blend-mode: normal !important;
     }
-    
-    /* On hover, ensure all corners are rounded */
+
+    /* Mobile Hover: Just fill with yellow, no white, no inversion */
     .arratai-split-btn:hover .arratai-icon-segment {
-        border-radius: 6px;
+        background: #FFD71B;
+    }
+
+    .arratai-split-btn .arratai-default,
+    .arratai-split-btn .arratai-hover {
+        display: none;
     }
 }
 
@@ -1005,6 +1019,69 @@ body {
     .social-link.linkedin,
     .social-link.orcid {
         padding: 8px 10px;
+    }
+
+    /* Mobile/Tablet: Transparent with colored border/icon - Gmail */
+    .social-link.gmail {
+        background: transparent;
+        border-color: #EA4335;
+        box-shadow: none;
+        padding: 8px 10px;
+    }
+
+    .social-link.gmail svg {
+        fill: #EA4335;
+    }
+
+    .social-link.gmail:hover {
+        background: #EA4335;
+        box-shadow: 0 0 15px rgba(234, 67, 53, 0.4);
+    }
+
+    .social-link.gmail:hover svg {
+        fill: white;
+    }
+
+    /* Mobile/Tablet: Transparent with colored border/icon - LinkedIn */
+    .social-link.linkedin {
+        background: transparent;
+        border-color: #0077B5;
+        box-shadow: none;
+        padding: 8px 10px;
+    }
+
+    .social-link.linkedin svg {
+        fill: #0077B5;
+    }
+
+    .social-link.linkedin:hover {
+        background: #0077B5;
+        box-shadow: 0 0 15px rgba(0, 119, 181, 0.4);
+    }
+
+    .social-link.linkedin:hover svg {
+        fill: white;
+    }
+
+    /* Mobile/Tablet: Transparent with colored border/icon - ORCID */
+    .social-link.orcid {
+        background: transparent;
+        border-color: #a6ce39;
+        box-shadow: none;
+        padding: 8px 10px;
+    }
+
+    .social-link.orcid svg {
+        fill: #a6ce39;
+    }
+
+    .social-link.orcid:hover {
+        background: #a6ce39;
+        box-shadow: 0 0 15px rgba(166, 206, 57, 0.4);
+    }
+
+    .social-link.orcid:hover svg {
+        fill: white;
     }
 
     @media (max-width: 768px) {
