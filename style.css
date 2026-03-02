@@ -772,7 +772,7 @@ body {
 
 /* PC Hover */
 .arratai-split-btn:hover {
-    background: #EDC934;
+    background: #FFD71B;
     box-shadow: 0 0 15px rgba(237, 201, 52, 0.3);
 }
 
@@ -831,6 +831,7 @@ body {
     /* Mobile Hover: Just fill with yellow, no white, no inversion */
     .arratai-split-btn:hover .arratai-icon-segment {
         background: #FFD71B;
+        box-shadow: 0 0 15px rgba(237, 201, 52, 0.3);
     }
 
     .arratai-split-btn .arratai-default,
@@ -1019,6 +1020,55 @@ body {
     .social-link.linkedin,
     .social-link.orcid {
         padding: 8px 10px;
+    }
+
+    /* Tablet Mode: Arratai button - same as mobile */
+    .arratai-split-btn {
+        border: none;
+        background: transparent;
+        padding: 0;
+        gap: 0;
+    }
+
+    .arratai-icon-segment {
+        background: transparent;
+        border: 2px solid #EDC934;
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        transition: background 0.3s ease;
+    }
+    
+    .arratai-icon-inner {
+        background: transparent;
+    }
+    
+    .arratai-icon-inner img {
+        width: 28px;
+        height: 28px;
+        background: transparent;
+        filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+
+    /* Tablet Hover: Just fill with yellow */
+    .arratai-split-btn:hover .arratai-icon-segment {
+        background: #FFD71B;
+        box-shadow: 0 0 15px rgba(237, 201, 52, 0.3);
+    }
+
+    /* Hide Arratai text in tablet mode - always */
+    .arratai-split-btn .arratai-default,
+    .arratai-split-btn .arratai-hover {
+        display: none !important;
+    }
+    
+    /* Also prevent hover popup */
+    .arratai-split-btn:hover .arratai-default,
+    .arratai-split-btn:hover .arratai-hover {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
 
     /* Mobile/Tablet: Transparent with colored border/icon - Gmail */
