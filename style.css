@@ -537,6 +537,19 @@ body {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
+    /* Hidden by default - slide in from right on hover */
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.4s ease-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Show and slide in on hover/focus */
+.project-card:hover .project-tag,
+.project-card:focus-within .project-tag {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .project-description {
