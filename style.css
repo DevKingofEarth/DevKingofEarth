@@ -438,19 +438,6 @@ body {
     margin-bottom: 40px;
 }
 
-@media (max-width: 768px) {
-    .skills-carousel-container {
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    
-    .skills-carousel-container::-webkit-scrollbar {
-        display: none;
-    }
-}
-
 .carousel-fade-left, .carousel-fade-right {
     position: absolute;
     top: 0;
