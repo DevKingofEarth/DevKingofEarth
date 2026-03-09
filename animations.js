@@ -125,3 +125,18 @@ document.body.style.transition = 'opacity 0.5s ease';
 setTimeout(() => {
     document.body.style.opacity = '1';
 }, 100);
+
+// ===== Skills Carousel - Pause on Hover =====
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('skillsTrack');
+    
+    if (track) {
+        track.addEventListener('mouseenter', () => {
+            track.classList.add('paused');
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            track.classList.remove('paused');
+        });
+    }
+});

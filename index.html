@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="https://devkingofearth.github.io/Meweb.png">
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rajdhani:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -39,10 +39,10 @@
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#cv" class="nav-link">CV</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#cv" class="nav-link">Connect</a></li>
             </ul>
             <div class="hamburger">
+                <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -96,49 +96,138 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title neon-text-cyan">Skill Inventory</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Domain Knowledge</h3>
-                    <ul>
-                        <li>Network-on-Chip (NoC) Architectures</li>
-                        <li>Power System Modeling</li>
-                        <li>Renewable Energy</li>
-                        <li>Electric Vehicles (EVs)</li>
-                        <li>Battery Management Systems (BMS)</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Machine Learning</h3>
-                    <ul>
-                        <li>Deep Learning</li>
-                        <li>Reinforcement Learning (Q-Learning)</li>
-                        <li>Graph Neural Networks (GNN)</li>
-                        <li>PyTorch & torch-geometric</li>
-                        <li>NumPy</li>
-                        <li>ML Frameworks</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Embedded Systems and IoT</h3>
-                    <ul>
-                        <li>ESP32 & ESP8266</li>
-                        <li>Arduino IDE</li>
-                        <li>Microcontrollers</li>
-                        <li>Hardware-Software Integration</li>
-                        <li>Raspberry Pi</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>C / Embedded C/C++</li>
-                        <li>Verilog</li>
-                        <li>Nix</li>
-                        <li>Bash / Shell Scripting</li>
-                        <li>FastAPI & Pydantic</li>
-                    </ul>
+            <h2 class="section-title" style="color: #00FF7F; text-shadow: 0 0 10px #00FF7F;">Skill Inventory</h2>
+            
+            <div class="skills-carousel-container">
+                <div class="carousel-fade-left"></div>
+                <div class="carousel-fade-right"></div>
+                <div class="skills-carousel-track" id="skillsTrack">
+                    <!-- Card 1: Domain Knowledge -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Domain Knowledge</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Network%20on%20Chip-EF2D5E?style=for-the-badge" alt="NoC">
+                            <img src="https://img.shields.io/badge/Power%20System%20Modelling-FF6F00?style=for-the-badge" alt="Power">
+                            <img src="https://img.shields.io/badge/Electric%20Vehicle%20Charging-4CAF50?style=for-the-badge" alt="EVs">
+                            <img src="https://img.shields.io/badge/Battery%20Management%20System-00BCD4?style=for-the-badge" alt="BMS">
+                            <img src="https://img.shields.io/badge/Renewable%20Systems-8BC34A?style=for-the-badge" alt="Renewable">
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Machine Learning -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Machine Learning</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Deep--Learning-FF6F00?style=for-the-badge&logo=deeplearning&logoColor=white" alt="DL">
+                            <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+                            <img src="https://img.shields.io/badge/GNN-E10098?style=for-the-badge&logo=graph&logoColor=white" alt="GNN">
+                            <img src="https://img.shields.io/badge/Reinforcement%20Learning-00BFA5?style=for-the-badge" alt="RL">
+                            <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+                            <img src="https://img.shields.io/badge/ML%20Frameworks-FF6F00?style=for-the-badge" alt="ML Frameworks">
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Embedded Systems and IoT -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Embedded Systems and IoT</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/ESP%20Boards-000000?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP">
+                            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino">
+                            <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="RPi">
+                            <img src="https://img.shields.io/badge/Microcontroller-003545?style=for-the-badge" alt="µC">
+                            <img src="https://img.shields.io/badge/Hardware--Software%20Integration-4A154B?style=for-the-badge" alt="HW/SW">
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Programming -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Programming</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                            <img src="https://img.shields.io/badge/C/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C">
+                            <img src="https://img.shields.io/badge/Verilog-4A154B?style=for-the-badge" alt="Verilog">
+                            <img src="https://img.shields.io/badge/Nix-5277E3?style=for-the-badge&logo=nixos&logoColor=white" alt="Nix">
+                            <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash">
+                            <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+                            <img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white" alt="Pydantic">
+                        </div>
+                    </div>
+
+                    <!-- Duplicate cards for infinite scroll -->
+                    <!-- Card 1: Domain Knowledge -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Domain Knowledge</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Network%20on%20Chip-EF2D5E?style=for-the-badge" alt="NoC">
+                            <img src="https://img.shields.io/badge/Power%20System%20Modelling-FF6F00?style=for-the-badge" alt="Power">
+                            <img src="https://img.shields.io/badge/Electric%20Vehicle%20Charging-4CAF50?style=for-the-badge" alt="EVs">
+                            <img src="https://img.shields.io/badge/Battery%20Management%20System-00BCD4?style=for-the-badge" alt="BMS">
+                            <img src="https://img.shields.io/badge/Renewable%20Systems-8BC34A?style=for-the-badge" alt="Renewable">
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Machine Learning -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Machine Learning</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Deep--Learning-FF6F00?style=for-the-badge&logo=deeplearning&logoColor=white" alt="DL">
+                            <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+                            <img src="https://img.shields.io/badge/GNN-E10098?style=for-the-badge&logo=graph&logoColor=white" alt="GNN">
+                            <img src="https://img.shields.io/badge/Reinforcement%20Learning-00BFA5?style=for-the-badge" alt="RL">
+                            <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+                            <img src="https://img.shields.io/badge/ML%20Frameworks-FF6F00?style=for-the-badge" alt="ML Frameworks">
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Embedded Systems and IoT -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Embedded Systems and IoT</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/ESP%20Boards-000000?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP">
+                            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino">
+                            <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="RPi">
+                            <img src="https://img.shields.io/badge/Microcontroller-003545?style=for-the-badge" alt="µC">
+                            <img src="https://img.shields.io/badge/Hardware--Software%20Integration-4A154B?style=for-the-badge" alt="HW/SW">
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Programming -->
+                    <div class="skill-carousel-card">
+                        <div class="skill-carousel-header">
+                            <span class="skill-carousel-icon">◈</span>
+                            <span class="skill-carousel-title">Programming</span>
+                        </div>
+                        <div class="tech-icons-grid">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                            <img src="https://img.shields.io/badge/C/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C">
+                            <img src="https://img.shields.io/badge/Verilog-4A154B?style=for-the-badge" alt="Verilog">
+                            <img src="https://img.shields.io/badge/Nix-5277E3?style=for-the-badge&logo=nixos&logoColor=white" alt="Nix">
+                            <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash">
+                            <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+                            <img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white" alt="Pydantic">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -211,9 +300,9 @@
     <!-- CV Section -->
     <section id="cv" class="cv-download">
         <div class="container">
-            <h2 class="section-title neon-text-orange">View My CV</h2>
+            <h2 class="section-title neon-text-orange">More About Me</h2>
             <div class="cv-content">
-                <p class="cv-description">View my complete CV and resume for detailed project history, certifications, and skills.</p>
+                <p class="cv-description">Below are my complete details about experience, skills, projects, and more.</p>
                 <div class="cv-buttons">
                     <a href="https://rxresu.me/devkingofearth/dharrun-singh-cv" target="_blank" rel="noopener noreferrer" class="btn btn-cv">
                         View My CV
@@ -291,6 +380,14 @@
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         });
 
         // Close menu on link click
