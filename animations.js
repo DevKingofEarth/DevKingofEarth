@@ -86,24 +86,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Skills carousel - touch scroll with auto-resume
     const track = document.getElementById('skillsTrack');
+    
     if (track) {
-        // Mouse hover pause
+        // Mouse hover pause (desktop)
         track.addEventListener('mouseenter', () => track.classList.add('paused'));
         track.addEventListener('mouseleave', () => track.classList.remove('paused'));
         
-        // Touch/drag - pause and allow manual scroll
-        let resumeTimer;
-        const pauseAutoScroll = () => {
-            track.classList.add('paused');
-            clearTimeout(resumeTimer);
-            resumeTimer = setTimeout(() => {
-                track.classList.remove('paused');
-            }, 2000);
-        };
-        
-        track.addEventListener('touchstart', pauseAutoScroll, { passive: true });
-        track.addEventListener('touchmove', pauseAutoScroll, { passive: true });
-        track.addEventListener('mousedown', pauseAutoScroll);
+        // Touch/drag on container - pause and allow manual scroll
+        const container = document.querySelector('.skills-carousel-container');
+        if (container) {
+            let resumeTimer;
+            const pauseAndResume = () => {
+                track.classList.add('paused');
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => {
+                    track.classList.remove('paused');
+                }, 2000);
+            };
+            
+            container.addEventListener('touchstart', pauseAndResume, { passive: true });
+            container.addEventListener('touchmove', pauseAndResume, { passive: true });
+        }
     }
     
     // Section title reveal animation
