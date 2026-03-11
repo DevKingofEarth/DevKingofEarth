@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Downloads - My Free Notes | Dharrun Singh</title>
+    <meta name="description" content="Free study resources and notes for GATE Electrical Engineering preparation">
+    <meta name="keywords" content="GATE, Electrical Engineering, Study Materials, Notes, Formulas">
+    <meta name="author" content="Dharrun Singh">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0E0E0E">
+    <link rel="canonical" href="https://devkingofearth.github.io/downloads.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Downloads - My Free Notes">
+    <meta property="og:description" content="Free study resources for GATE Electrical Engineering">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devkingofearth.github.io/downloads.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Downloads - My Free Notes">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Rajdhani:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <style>
+        /* Downloads Page Specific Styles - Neutral Cyan/Green Scheme */
+        .downloads-hero {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .downloads-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px 0 80px;
+        }
+
+        .download-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-lime));
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 40px rgba(0, 243, 255, 0.15);
+        }
+
+        .download-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .download-card-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        .download-card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-card-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-tag {
+            background: rgba(0, 243, 255, 0.15);
+            color: var(--neon-cyan);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn-primary {
+            background: linear-gradient(135deg, var(--neon-cyan), #00b894);
+            color: #0a0a0a;
+            border: none;
+        }
+
+        .download-btn-primary:hover {
+            box-shadow: 0 5px 20px rgba(0, 243, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .download-btn-secondary {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-secondary);
+        }
+
+        .download-btn-secondary:hover {
+            border-color: var(--neon-lime);
+            color: var(--neon-lime);
+        }
+
+        /* Markdown Content Viewer */
+        .content-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-dark);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .content-viewer.active {
+            display: block;
+        }
+
+        .viewer-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+        }
+
+        .viewer-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+        }
+
+        .viewer-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .viewer-action-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .viewer-action-btn.github {
+            background: #24292e;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        .viewer-action-btn.github:hover {
+            background: #2f363d;
+        }
+
+        .viewer-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 15px;
+            transition: color 0.3s;
+        }
+
+        .viewer-close:hover {
+            color: var(--neon-cyan);
+        }
+
+        .viewer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            line-height: 1.8;
+        }
+
+        /* When viewer is active, content on left, outline on right */
+        .content-viewer.active .viewer-content {
+            margin: 0;
+            margin-right: 60px;
+            padding-left: 30px;
+            max-width: none;
+        }
+
+        .viewer-content.loading {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 60px;
+        }
+
+        .viewer-content h1, 
+        .viewer-content h2, 
+        .viewer-content h3 {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--neon-cyan);
+            margin: 30px 0 15px;
+        }
+
+        .viewer-content h1 { font-size: 2rem; }
+        .viewer-content h2 { font-size: 1.5rem; }
+        .viewer-content h3 { font-size: 1.25rem; }
+
+        .viewer-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .viewer-content ul, 
+        .viewer-content ol {
+            margin: 15px 0 15px 30px;
+            color: var(--text-secondary);
+        }
+
+        .viewer-content li {
+            margin-bottom: 8px;
+        }
+
+        .viewer-content code {
+            background: var(--bg-card);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9em;
+            color: var(--neon-lime);
+        }
+
+        .viewer-content pre {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .viewer-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .viewer-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .viewer-content th,
+        .viewer-content td {
+            padding: 12px;
+            border: 1px solid var(--text-muted);
+            text-align: left;
+        }
+
+        .viewer-content th {
+            background: var(--bg-card);
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .viewer-content td {
+            color: var(--text-secondary);
+        }
+
+        .viewer-content strong {
+            color: var(--neon-lime);
+        }
+
+        .viewer-content blockquote {
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .viewer-content hr {
+            border: none;
+            border-top: 1px solid var(--text-muted);
+            margin: 30px 0;
+        }
+
+        .viewer-content a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+
+        .viewer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .viewer-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* ===== Outline / Table of Contents ===== */
+        .viewer-outline {
+            position: fixed;
+            right: 0;
+            top: 60px;
+            width: 50px;
+            height: calc(100vh - 60px);
+            background: var(--bg-card);
+            border-left: 1px solid rgba(0, 243, 255, 0.3);
+            display: none;
+            transition: width 0.3s ease;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .viewer-outline.active {
+            display: block;
+        }
+
+        .viewer-outline:hover {
+            width: 280px;
+        }
+
+        /* Minimized state - just a thin strip with dots */
+        .outline-mini {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px 0;
+            gap: 15px;
+        }
+
+        .outline-mini-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            opacity: 0.4;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .outline-mini-dot:hover,
+        .outline-mini-dot.active {
+            opacity: 1;
+            transform: scale(1.5);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .outline-mini-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Full content when expanded */
+        .outline-full {
+            display: none;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .viewer-outline:hover .outline-mini {
+            display: none;
+        }
+
+        .viewer-outline:hover .outline-full {
+            display: flex;
+        }
+
+        .outline-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            padding: 20px 20px 15px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .outline-list {
+            list-style: none;
+            margin: 0;
+            padding: 0 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .outline-list li {
+            margin-bottom: 8px;
+        }
+
+        .outline-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .outline-list a:hover {
+            color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .outline-list a.active {
+            color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.15);
+            border-left-color: var(--neon-cyan);
+        }
+
+        /* ===== Print Styles for PDF Download ===== */
+        @media print {
+            /* Hide UI elements */
+            .navbar, .viewer-header, .viewer-outline, .downloads-hero, .footer, 
+            .download-card, .downloads-grid, .container:not(.viewer-content) {
+                display: none !important;
+            }
+
+            /* Reset body and content for print */
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .content-viewer {
+                position: static !important;
+                display: block !important;
+                background: white !important;
+            }
+
+            .viewer-content {
+                padding: 0 !important;
+                max-width: 100% !important;
+                line-height: 1.5 !important;
+            }
+
+            /* Override all neon colors to black/dark gray */
+            .viewer-content h1,
+            .viewer-content h2, 
+            .viewer-content h3 {
+                color: #1a1a1a !important;
+                text-shadow: none !important;
+                page-break-after: avoid;
+            }
+
+            .viewer-content h1 { font-size: 1.8rem; }
+            .viewer-content h2 { font-size: 1.4rem; }
+            .viewer-content h3 { font-size: 1.2rem; }
+
+            .viewer-content p,
+            .viewer-content li,
+            .viewer-content td {
+                color: #333333 !important;
+            }
+
+            .viewer-content code {
+                background: #f5f5f5 !important;
+                color: #333333 !important;
+                border: 1px solid #cccccc !important;
+            }
+
+            .viewer-content pre {
+                background: #f5f5f5 !important;
+                border: 1px solid #cccccc !important;
+                page-break-inside: avoid;
+            }
+
+            .viewer-content pre code {
+                color: #333333 !important;
+            }
+
+            .viewer-content table {
+                page-break-inside: avoid;
+            }
+
+            .viewer-content th {
+                background: #f5f5f5 !important;
+                color: #1a1a1a !important;
+            }
+
+            .viewer-content td {
+                border-color: #cccccc !important;
+            }
+
+            .viewer-content strong {
+                color: #000000 !important;
+            }
+
+            .viewer-content blockquote {
+                border-left-color: #333333 !important;
+                color: #666666 !important;
+            }
+
+            .viewer-content a {
+                color: #000000 !important;
+                text-decoration: underline !important;
+            }
+
+            /* Remove page breaks before headings */
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            /* Ensure lists and tables don't break awkwardly */
+            ul, ol, table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DS</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="downloads.html" class="nav-link">Downloads</a></li>
+                <li><a href="index.html#cv" class="nav-link">Connect</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="downloads-hero">
+        <h1 class="neon-text" style="font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; margin-bottom: 15px;">My Free Notes</h1>
+        <p style="color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+            Free study resources, formulas, and materials for exam preparation. 
+            Click on any resource to view the content.
+        </p>
+    </section>
+
+    <!-- Downloads Grid -->
+    <section class="container">
+        <div class="downloads-grid">
+            <!-- GATE EE Formulas Card -->
+            <div class="download-card">
+                <div class="download-card-icon">⚡</div>
+                <h3 class="download-card-title">GATE EE - Last Minute Formulas</h3>
+                <p class="download-card-description">
+                    Comprehensive formula sheet for GATE Electrical Engineering exam. 
+                    Covers all essential formulas from Network Theory, Power Systems, 
+                    Control Systems, Machines, and more. Perfect for quick revision.
+                </p>
+                <div class="download-card-meta">
+                    <span class="download-tag">GATE EE</span>
+                    <span class="download-tag">Formulas</span>
+                    <span class="download-tag">Free</span>
+                </div>
+                <div class="download-buttons">
+                    <a href="#" class="download-btn download-btn-primary" onclick="openViewer('gate-ee'); return false;">
+                        <span>📖</span> View Notes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dharrun Singh. All rights reserved.</p>
+            <p class="footer-tagline">Built with <span class="neon-heart">♥</span> and Neon Lights</p>
+        </div>
+    </footer>
+
+    <!-- Content Viewer Modal -->
+    <div class="content-viewer" id="contentViewer">
+        <div class="viewer-header">
+            <span class="viewer-title" id="viewerTitle">GATE EE - Last Minute Formulas</span>
+            <button class="viewer-close" onclick="closeViewer()">&times;</button>
+        </div>
+        
+        <!-- Outline / Table of Contents -->
+        <nav class="viewer-outline" id="viewerOutline">
+            <!-- Minimized view - dots -->
+            <div class="outline-mini" id="outlineMini">
+                <div class="outline-mini-label">Contents</div>
+                <!-- Dots generated dynamically -->
+            </div>
+            <!-- Full expanded view -->
+            <div class="outline-full">
+                <div class="outline-title">Contents</div>
+                <ul class="outline-list" id="outlineList">
+                    <!-- Generated dynamically -->
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="viewer-content" id="viewerContent">
+            <!-- Content loaded dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Configuration - Add your MD file URLs here
+        // For LOCAL testing: use local file path
+        // For PRODUCTION: use GitHub raw URL (after pushing to GitHub)
+        
+        const useLocal = true; // Set to false after pushing to GitHub
+        
+        const resources = {
+            'gate-ee': {
+                title: 'GATE EE - Last Minute Formulas',
+                localUrl: 'GATE_EE_Last_Minute_Formulas.md',
+                rawUrl: 'https://raw.githubusercontent.com/DevKingofEarth/GATE-PREP-RESOURCES/main/GATE_EE_Last_Minute_Formulas.md',
+                githubUrl: 'https://github.com/DevKingofEarth/GATE-PREP-RESOURCES/blob/main/GATE_EE_Last_Minute_Formulas.md'
+            }
+        };
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Viewer functions
+        async function openViewer(type) {
+            const viewer = document.getElementById('contentViewer');
+            const content = document.getElementById('viewerContent');
+            const outline = document.getElementById('viewerOutline');
+            const outlineList = document.getElementById('outlineList');
+            const resource = resources[type];
+            
+            if (!resource) {
+                content.innerHTML = '<p>Resource not found.</p>';
+                viewer.classList.add('active');
+                return;
+            }
+            
+            // Update header
+            document.getElementById('viewerTitle').textContent = resource.title;
+            
+            // Show loading
+            content.innerHTML = '<div class="loading">Loading content...</div>';
+            content.classList.add('loading');
+            viewer.classList.add('active');
+            outline.classList.remove('active');
+            document.body.style.overflow = 'hidden';
+            
+            try {
+                // Determine URL based on mode
+                const url = useLocal ? resource.localUrl : resource.rawUrl;
+                
+                // Fetch the MD file
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to load content');
+                const markdown = await response.text();
+                
+                // Render markdown using marked.js
+                content.classList.remove('loading');
+                content.innerHTML = marked.parse(markdown);
+                
+                // Generate outline from headings
+                generateOutline(content, outlineList, outline);
+                
+                // Setup scroll highlighting
+                setupScrollHighlight(content, outlineList);
+            } catch (error) {
+                content.classList.remove('loading');
+                content.innerHTML = '<p>Error loading content.</p>';
+                console.error('Error loading markdown:', error);
+            }
+        }
+        
+        function generateOutline(content, outlineList, outline) {
+            // Find all h2 headings in content
+            const headings = content.querySelectorAll('h2');
+            
+            if (headings.length === 0) {
+                outline.classList.remove('active');
+                return;
+            }
+            
+            // Clear existing outline
+            outlineList.innerHTML = '';
+            const outlineMini = document.getElementById('outlineMini');
+            
+            // Remove existing dots (keep the label)
+            const existingDots = outlineMini.querySelectorAll('.outline-mini-dot');
+            existingDots.forEach(dot => dot.remove());
+            
+            // Create outline items
+            headings.forEach((heading, index) => {
+                // Add ID to heading if not present
+                if (!heading.id) {
+                    heading.id = 'section-' + index;
+                }
+                
+                // Full list item
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + heading.id;
+                a.textContent = heading.textContent;
+                a.dataset.target = heading.id;
+                
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(this.dataset.target);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+                
+                li.appendChild(a);
+                outlineList.appendChild(li);
+                
+                // Mini dot
+                const dot = document.createElement('div');
+                dot.className = 'outline-mini-dot';
+                dot.dataset.target = heading.id;
+                dot.title = heading.textContent;
+                
+                dot.addEventListener('click', function() {
+                    const target = document.getElementById(this.dataset.target);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+                
+                outlineMini.appendChild(dot);
+            });
+            
+            outline.classList.add('active');
+        }
+        
+        function setupScrollHighlight(content, outlineList) {
+            const headings = content.querySelectorAll('h2');
+            const links = outlineList.querySelectorAll('a');
+            const dots = document.querySelectorAll('.outline-mini-dot');
+            
+            if (headings.length === 0) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active from all links and dots
+                        links.forEach(link => link.classList.remove('active'));
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        
+                        // Add active to corresponding link
+                        const activeLink = outlineList.querySelector(`a[data-target="${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                        
+                        // Add active to corresponding dot
+                        const activeDot = document.querySelector(`.outline-mini-dot[data-target="${entry.target.id}"]`);
+                        if (activeDot) {
+                            activeDot.classList.add('active');
+                        }
+                    }
+                });
+            }, { rootMargin: '-20% 0px -60% 0px' });
+            
+            headings.forEach(heading => observer.observe(heading));
+        }
+
+        function closeViewer() {
+            const viewer = document.getElementById('contentViewer');
+            viewer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close viewer on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeViewer();
+            }
+        });
+    </script>
+</body>
+</html>
