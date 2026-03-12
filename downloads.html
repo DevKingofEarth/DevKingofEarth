@@ -226,15 +226,88 @@
         .viewer-close {
             background: none;
             border: none;
-            color: var(--text-secondary);
+            color: #ff0033;
             font-size: 1.5rem;
             cursor: pointer;
             padding: 5px 15px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            text-shadow: 0 0 5px #ff0033, 0 0 10px #ff0033;
         }
 
         .viewer-close:hover {
+            color: #ff0033;
+            background: rgba(255, 0, 51, 0.15);
+            text-shadow: 0 0 8px #ff0033, 0 0 20px #ff0033, 0 0 40px #ff0033;
+        }
+
+        .viewer-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border: 1px solid var(--text-muted);
+            border-radius: 4px;
+            opacity: 0.5;
+        }
+
+        .viewer-download {
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
             color: var(--neon-cyan);
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .viewer-download:hover {
+            background: rgba(0, 243, 255, 0.15);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        /* Toast notification */
+        .viewer-toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--neon-cyan);
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1001;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        .viewer-toast.show {
+            opacity: 1;
+        }
+
+        .viewer-toast kbd {
+            background: var(--bg-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            border: 1px solid var(--text-muted);
+        }
+
+        .viewer-header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .viewer-header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .viewer-content {
@@ -650,7 +723,15 @@
     <div class="content-viewer" id="contentViewer">
         <div class="viewer-header">
             <span class="viewer-title" id="viewerTitle">GATE EE - Last Minute Formulas</span>
-            <button class="viewer-close" onclick="closeViewer()">&times;</button>
+            <div class="viewer-header-right">
+                <button class="viewer-download" onclick="window.print()">Download PDF</button>
+                <button class="viewer-close" onclick="closeViewer()">&times;</button>
+            </div>
+        </div>
+
+        <!-- Toast notification -->
+        <div class="viewer-toast" id="viewerToast">
+            Press <kbd>Esc</kbd> to close
         </div>
         
         <!-- Outline / Table of Contents -->
@@ -738,6 +819,9 @@
             viewer.classList.add('active');
             outline.classList.remove('active');
             document.body.style.overflow = 'hidden';
+            
+            // Show toast hint
+            showToast();
             
             try {
                 // Determine URL based on mode
@@ -857,9 +941,20 @@
             headings.forEach(heading => observer.observe(heading));
         }
 
+        function showToast() {
+            console.log('Toast called');
+            const toast = document.getElementById('viewerToast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
         function closeViewer() {
             const viewer = document.getElementById('contentViewer');
+            const toast = document.getElementById('viewerToast');
             viewer.classList.remove('active');
+            toast.classList.remove('show');
             document.body.style.overflow = '';
         }
 
